@@ -1,13 +1,13 @@
 class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+        # if the starting point is an bostacle
+        if obstacleGrid[0][0]:
+            return 0
+        
         # the dimension of the grid (m x n)
         m, n = len(obstacleGrid), len(obstacleGrid[0])
         
         dp = [[0 for i in range(n)] for j in range(m)]
-        
-        # if the starting point is an bostacle
-        if obstacleGrid[0][0]:
-            return 0
         
         dp[0][0] = 1
         
