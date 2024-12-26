@@ -7,7 +7,7 @@ class Solution:
         if target < -total_sum or target > total_sum:
             return 0
         
-        # dp[i][s] = number of wqays to achieve s using the first i numbers
+        # dp[i][s] = number of ways to achieve s using the first i numbers
         # (shifted by total_sum for indices of negative values)
         dp = [[0] * (2 * total_sum + 1) for _ in range(len(nums))]
         
@@ -23,7 +23,7 @@ class Solution:
                 if dp[i - 1][s + total_sum] > 0:
                     # add nums[i] to s
                     dp[i][s + nums[i] + total_sum] += dp[i - 1][s + total_sum]
-                    # subtract nums[i] to s
+                    # subtract nums[i] from s
                     dp[i][s - nums[i] + total_sum] += dp[i - 1][s + total_sum]
         
         # return the result
